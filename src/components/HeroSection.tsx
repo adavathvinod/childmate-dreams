@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import heroChildren from '@/assets/hero-children.jpg';
 import heroDigital from '@/assets/hero-digital.jpg';
 import heroPlayway from '@/assets/hero-playway.jpg';
+import elephantMascot from '@/assets/elephant-mascot.png';
 
 const HeroSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -137,6 +138,20 @@ const HeroSection: React.FC = () => {
 
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-20" />
+      
+      {/* Elephant Mascot - Animated */}
+      <div className="absolute bottom-20 right-8 md:right-16 z-20 hidden lg:block">
+        <div className="relative animate-bounce-character">
+          <img 
+            src={elephantMascot} 
+            alt="Childmate Elephant Mascot" 
+            className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl rounded-full border-4 border-white/30 bg-white/20 backdrop-blur-sm"
+          />
+          <div className="absolute -top-2 -right-2 w-8 h-8 bg-sunny rounded-full flex items-center justify-center animate-pulse shadow-lg">
+            <span className="text-xs">📚</span>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

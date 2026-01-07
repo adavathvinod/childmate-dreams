@@ -5,6 +5,7 @@ import StatsBar from '@/components/StatsBar';
 import AboutSection from '@/components/AboutSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import GallerySection from '@/components/GallerySection';
+import InstagramFeed from '@/components/InstagramFeed';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import FAQSection from '@/components/FAQSection';
 import ContactSection from '@/components/ContactSection';
@@ -31,6 +32,9 @@ const Index = () => {
       
       {/* Infrastructure Gallery */}
       <GallerySection />
+      
+      {/* Instagram Feed */}
+      <InstagramFeed />
       
       {/* Parent Testimonials */}
       <TestimonialsSection />
