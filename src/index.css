@@ -2,95 +2,119 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Childmate Playschool Design System - Modern Nurturing Theme */
 
 @layer base {
   :root {
+    /* Core Background & Foreground */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 250 30% 15%;
 
+    /* Card & Popover */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 250 30% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 250 30% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Brand Purple - Primary */
+    --primary: 270 60% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Soft Mint Green - Secondary */
+    --secondary: 158 45% 92%;
+    --secondary-foreground: 158 60% 25%;
+    
+    /* Muted Surfaces */
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 45%;
+    
+    /* Sky Blue - Accent */
+    --accent: 198 85% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Sunny Yellow */
+    --sunny: 45 95% 60%;
+    --sunny-foreground: 45 90% 20%;
+    
+    /* Mint Green */
+    --mint: 158 50% 55%;
+    --mint-foreground: 0 0% 100%;
+    
+    /* Coral Orange (for accents) */
+    --coral: 15 90% 65%;
+    --coral-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Form Elements */
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 270 60% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Radius - Soft Rounded */
+    --radius: 1rem;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
+    /* Sidebar */
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 270 60% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 158 45% 92%;
+    --sidebar-accent-foreground: 158 60% 25%;
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 270 60% 50%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(270 60% 50% / 0.9), hsl(198 85% 60% / 0.9));
+    --gradient-nurturing: linear-gradient(180deg, hsl(158 45% 97%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-sunny: linear-gradient(135deg, hsl(45 95% 60%), hsl(15 90% 65%));
+    --gradient-playful: linear-gradient(135deg, hsl(198 85% 60%), hsl(158 50% 55%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(270 60% 50% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(220 30% 20% / 0.1);
+    --shadow-elevated: 0 20px 40px -12px hsl(220 30% 20% / 0.15);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --background: 250 30% 8%;
+    --foreground: 0 0% 98%;
+    --card: 250 30% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 250 30% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 270 60% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 158 35% 18%;
+    --secondary-foreground: 158 40% 80%;
+    --muted: 250 20% 18%;
+    --muted-foreground: 220 15% 65%;
+    --accent: 198 75% 45%;
+    --accent-foreground: 0 0% 100%;
+    --sunny: 45 90% 55%;
+    --sunny-foreground: 45 90% 10%;
+    --mint: 158 45% 45%;
+    --mint-foreground: 0 0% 100%;
+    --coral: 15 85% 55%;
+    --coral-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 250 20% 20%;
+    --input: 250 20% 20%;
+    --ring: 270 60% 65%;
+    --sidebar-background: 250 30% 10%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 270 60% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 158 30% 15%;
+    --sidebar-accent-foreground: 158 40% 80%;
+    --sidebar-border: 250 20% 20%;
+    --sidebar-ring: 270 60% 65%;
   }
 }
 
@@ -99,7 +123,213 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html {
+    scroll-behavior: smooth;
   }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Premium Button Styles */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-lg hover:scale-105 hover:brightness-110;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  
+  .btn-whatsapp {
+    @apply bg-[#25D366] text-white px-6 py-3 rounded-full font-semibold;
+    @apply flex items-center gap-2 transition-all duration-300;
+    @apply hover:shadow-lg hover:scale-105;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-medium;
+    @apply border-2 border-transparent transition-all duration-300;
+    @apply hover:bg-primary hover:text-primary-foreground;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* Card Styles */
+  .card-premium {
+    @apply bg-card rounded-3xl p-8;
+    box-shadow: var(--shadow-card);
+    @apply transition-all duration-300 hover:shadow-elevated hover:-translate-y-1;
+  }
+  
+  .card-feature {
+    @apply bg-card rounded-2xl p-6 text-center;
+    box-shadow: var(--shadow-soft);
+    @apply border border-border/50;
+    @apply transition-all duration-300 hover:shadow-card hover:-translate-y-1;
+  }
+
+  /* Stats Badge */
+  .stat-badge {
+    @apply inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm;
+    @apply px-4 py-2 rounded-full text-foreground font-medium;
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Gallery Item */
+  .gallery-item {
+    @apply rounded-2xl overflow-hidden relative cursor-pointer;
+    @apply transition-all duration-500;
+  }
+
+  /* Section Styles */
+  .section-padding {
+    @apply py-16 md:py-24 px-4 md:px-8;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .section-subtitle {
+    @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* Testimonial Card */
+  .testimonial-card {
+    @apply bg-card rounded-3xl p-8 relative;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .testimonial-card::before {
+    content: '"';
+    @apply absolute -top-4 left-8 text-8xl text-primary/20 font-serif;
+  }
+}
+
+@layer utilities {
+  /* Animated Gradient Text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+  
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md;
+  }
+  
+  /* Floating Animation */
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Bounce Animation for Logo Boy */
+  .bounce-character {
+    animation: bounceUpDown 1.5s ease-in-out infinite;
+  }
+  
+  /* Fade In Animation */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  /* Slide Animation */
+  .slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+  
+  .slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounceUpDown {
+  0%, 100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px 10px hsl(var(--primary) / 0.2);
+  }
+}
+
+/* Slider Animation */
+@keyframes slideShow {
+  0%, 30% {
+    opacity: 1;
+  }
+  33%, 100% {
+    opacity: 0;
+  }
+}
+
+.slide-1 {
+  animation: slideShow 12s infinite;
+}
+
+.slide-2 {
+  animation: slideShow 12s infinite 4s;
+}
+
+.slide-3 {
+  animation: slideShow 12s infinite 8s;
 }
