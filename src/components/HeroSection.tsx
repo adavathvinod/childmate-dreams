@@ -16,12 +16,6 @@ const HeroSection: React.FC = () => {
       description: 'Where every child discovers the joy of learning through play',
     },
     {
-      image: heroDigital,
-      title: 'Modern Digital Classrooms',
-      subtitle: 'Smart Learning',
-      description: 'Technology-enabled education for the 21st century learners',
-    },
-    {
       image: heroPlayway,
       title: 'Play-Way Learning Method',
       subtitle: 'Learn Through Play',
