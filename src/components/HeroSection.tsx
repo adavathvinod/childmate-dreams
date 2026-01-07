@@ -41,12 +41,12 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className="relative h-screen min-h-[700px] overflow-hidden">
-      {/* Slides */}
+      {/* Slides with content */}
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+          className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+            index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
           }`}
         >
           {/* Background Image */}
@@ -57,53 +57,61 @@ const HeroSection: React.FC = () => {
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
           </div>
+
+          {/* Content - Now inside each slide for proper transition */}
+          <div className="relative z-20 h-full container mx-auto px-4 flex items-center">
+            <div className="max-w-2xl text-white">
+              {/* Badge */}
+              <div 
+                className={`inline-flex items-center gap-2 bg-primary/90 backdrop-blur-sm px-4 py-2 rounded-full mb-6 transition-all duration-700 ${
+                  index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: index === currentSlide ? '0.2s' : '0s' }}
+              >
+                <span className="text-sm font-medium">{slide.subtitle}</span>
+              </div>
+
+              {/* Title */}
+              <h1 
+                className={`font-serif text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight transition-all duration-700 ${
+                  index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: index === currentSlide ? '0.4s' : '0s' }}
+              >
+                {slide.title}
+              </h1>
+
+              {/* Description */}
+              <p 
+                className={`text-lg md:text-xl text-white/90 mb-8 max-w-lg transition-all duration-700 ${
+                  index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: index === currentSlide ? '0.6s' : '0s' }}
+              >
+                {slide.description}
+              </p>
+
+              {/* CTAs */}
+              <div 
+                className={`flex flex-wrap gap-4 transition-all duration-700 ${
+                  index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: index === currentSlide ? '0.8s' : '0s' }}
+              >
+                <a href="#contact" className="btn-hero">
+                  Schedule a Visit
+                </a>
+                <button className="flex items-center gap-3 text-white font-medium hover:text-sunny transition-colors group">
+                  <span className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-sunny group-hover:scale-110 transition-all">
+                    <Play className="w-5 h-5 ml-0.5" />
+                  </span>
+                  <span>Virtual Tour</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       ))}
-
-      {/* Content */}
-      <div className="relative z-20 h-full container mx-auto px-4 flex items-center">
-        <div className="max-w-2xl text-white">
-          {/* Badge */}
-          <div 
-            className="inline-flex items-center gap-2 bg-primary/90 backdrop-blur-sm px-4 py-2 rounded-full mb-6 animate-fade-in"
-            style={{ animationDelay: '0.2s' }}
-          >
-            <span className="text-sm font-medium">{slides[currentSlide].subtitle}</span>
-          </div>
-
-          {/* Title */}
-          <h1 
-            className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight animate-fade-in"
-            style={{ animationDelay: '0.4s' }}
-          >
-            {slides[currentSlide].title}
-          </h1>
-
-          {/* Description */}
-          <p 
-            className="text-lg md:text-xl text-white/90 mb-8 max-w-lg animate-fade-in"
-            style={{ animationDelay: '0.6s' }}
-          >
-            {slides[currentSlide].description}
-          </p>
-
-          {/* CTAs */}
-          <div 
-            className="flex flex-wrap gap-4 animate-fade-in"
-            style={{ animationDelay: '0.8s' }}
-          >
-            <a href="#contact" className="btn-hero">
-              Schedule a Visit
-            </a>
-            <button className="flex items-center gap-3 text-white font-medium hover:text-sunny transition-colors group">
-              <span className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-sunny group-hover:scale-110 transition-all">
-                <Play className="w-5 h-5 ml-0.5" />
-              </span>
-              <span>Virtual Tour</span>
-            </button>
-          </div>
-        </div>
-      </div>
 
       {/* Slide Navigation */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
